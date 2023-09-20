@@ -1,0 +1,13 @@
+@startuml 接收rpc流程
+
+participant "RPC Client from Another Service" as rc
+participant "RPC Server" as rs
+participant "KV Store" as kv
+
+autonumber
+rc --> rs: send operation
+rs --> kv: do operation
+kv --> rs: return result
+rs --> rc: return result
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml 物理结构
+
+actor User as u
+
+frame "Docker Services" as serv {
+    node Server1 as s1{
+        component "HTTP Server" as h1
+        component "RPC Server" as r1
+        component "KV Store" as kv1
+    }
+    node Server2 as s2 {
+        component "HTTP Server" as h2
+        component "RPC Server" as r2
+        component "KV Store" as kv2
+    }
+    node Server3 as s3 {
+        component "HTTP Server" as h3
+        component "RPC Server" as r3
+        component "KV Store" as kv3
+    }
+}
+
+cloud "Docker Network" as net
+
+u --> h1
+u --> h2
+u --> h3
+
+h1 --> r1
+h2 --> r2
+h3 --> r3
+r1 <--> net
+r2 <--> net
+r3 <--> net
+
+h1 --> kv1
+h2 --> kv2
+h3 --> kv3
+r1 --> kv1
+r2 --> kv2
+r3 --> kv3
+
+@enduml

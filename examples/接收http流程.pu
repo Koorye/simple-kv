@@ -1,0 +1,21 @@
+@startuml 接收http流程
+
+actor User as user
+participant "HTTP Server" as hs
+participant "RPC Client" as rc
+participant "KV Store" as kv
+
+autonumber
+user --> hs: send operation
+hs --> hs: hash key
+
+alt hash(key) == local_id
+    hs --> kv: do operation
+    kv --> hs: return result
+else hash(key) != local_id
+    hs --> rc: send operation to target
+    rc --> hs: return result
+end
+hs --> user: return result
+
+@enduml
