@@ -70,6 +70,25 @@
 
 ![接收RPC](examples/接收rpc流程.svg)
 
+### 代码结构
+
+``` shell
+.
+├── Dockerfile         # docker构建配置 
+├── docker-compose.yml # docker-compose配置
+├── requirements.txt   # python依赖文件
+├── scripts # 脚本工具
+│   ├── build_and_run.sh # 重构镜像并运行服务
+│   ├── run.sh           # 运行服务
+│   └── stop.sh          # 停止服务
+├── simplekv
+│   ├── app.py     # 主程序，HTTP接口定义，HTTP/RPC服务启动
+│   ├── logger.py  # 日志工具
+│   ├── service.py # 处理HTTP/RPC请求
+│   └── store.py   # KV存储
+└── tests # 一些测试程序
+```
+
 ## 说明
 
 本项目基于fastapi/rpyc快速搭建，uml图采用plantuml语言绘制，感谢这些项目作者的杰出贡献！
