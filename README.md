@@ -13,12 +13,12 @@
 ./scripts/build_and_run.sh
 ```
 此脚本会执行以下步骤：
-   1. 构建名为simplekv的镜像，包含python程序
-   2. 创建名为simplekv_rdp的桥接网络
-   3. 通过docker-compose启动server1/server2/server3共3个容器
-   4. 挂载容器的日志文件到`logs/`目录中
-   5. 挂载外部端口9527/9528/9529到内部端口80
-   6. 将容器连接到网络
+- 1. 构建名为simplekv的镜像，包含python程序
+- 2. 创建名为simplekv_rdp的桥接网络
+- 3. 通过docker-compose启动server1/server2/server3共3个容器
+- 4. 挂载容器的日志文件到`logs/`目录中
+- 5. 挂载外部端口9527/9528/9529到内部端口80
+- 6. 将容器连接到网络
 
 3. 通过HTTP请求访问任一容器进行调用，用法详见[接口描述](#2.1)
 
