@@ -1,66 +1,43 @@
-version: '1'
+version: '2.2'
 services:
   server1:
-    image: simplekv:v1
+    image: koorye/simplekv:v2
     container_name: server1
-    restart: always
-    volumes: 
-    - ./logs/1/:/tmp/simplekv/logs/
     environment:
     - TZ=Asia/Shanghai
-    ports: 
-    - "9527:80"
-    networks:
-    - simplekv_rdp
-    command: 
-    - "--host"
-    - "server1"
-    - "--all-hosts"
-    - "server1"
-    - "server2"
-    - "server3"
+    network_mode: host
+    command:
+    - "--port"
+    - "9527"
+    - "--all-ports"
+    - "9527"
+    - "9528"
+    - "9529"
 
   server2:
-    image: simplekv:v1
+    image: koorye/simplekv:v2
     container_name: server2
-    restart: always
-    volumes: 
-    - ./logs/2/:/tmp/simplekv/logs/
     environment:
     - TZ=Asia/Shanghai
-    ports: 
-    - "9528:80"
-    networks:
-    - simplekv_rdp
-    command: 
-    - "--host"
-    - "server2"
-    - "--all-hosts"
-    - "server1"
-    - "server2"
-    - "server3"
+    network_mode: host
+    command:
+    - "--port"
+    - "9528"
+    - "--all-ports"
+    - "9527"
+    - "9528"
+    - "9529"
 
   server3:
-    image: simplekv:v1
+    image: koorye/simplekv:v2
     container_name: server3
-    restart: always
-    volumes: 
-    - ./logs/3/:/tmp/simplekv/logs/
     environment:
     - TZ=Asia/Shanghai
-    ports: 
-    - "9529:80"
-    networks:
-    - simplekv_rdp
-    command: 
-    - "--host"
-    - "server3"
-    - "--all-hosts"
-    - "server1"
-    - "server2"
-    - "server3"
-
-networks:
-  simplekv_rdp:
-    external: true
-    driver: bridge
+    network_mode: host
+    command:
+    - "--port"
+    - "9529"
+    - "--all-ports"
+    - "9527"
+    - "9528"
+    - "9529"

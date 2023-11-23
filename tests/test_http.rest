@@ -4,16 +4,16 @@ content-type: application/json
 {"myname": "电子科技大学@2023"}
 
 ###
-POST http://127.0.0.1:9527 HTTP/2.0
+POST http://127.0.0.1:9529 HTTP/2.0
 content-type: application/json
 
-'{"tasks": ["task 1", "task 2", "task 3"]}'
+{"tasks": ["task 1", "task 2", "task 3"]}
 
 ###
 POST http://127.0.0.1:9527 HTTP/2.0
 content-type: application/json
 
-'{"age": 123}'
+{"age": 123}
 
 ###
 GET http://127.0.0.1:9527/myname HTTP/2.0
@@ -28,7 +28,7 @@ GET http://127.0.0.1:9527/age HTTP/2.0
 GET http://127.0.0.1:9527/notexistkey HTTP/2.0
 
 ###
-DELETE http://127.0.0.1:9527/myname HTTP/2.0
+DELETE http://127.0.0.1:9529/myname HTTP/2.0
 
 ###
 GET http://127.0.0.1:9527/myname HTTP/2.0
